@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TEME Premium 2027 | Pós-graduação em Medicina de Emergência</title>
+<meta name="theme-color" content="#040405" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23040405'/%3E%3Cpath d='M3 17h5l2-7 3 13 3-9 2 3h8' fill='none' stroke='%23E8C9A0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,400&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --black:#040405;
+  --black2:#0a0a0c;
+  --graphite:#16161a;
+  --red:#F51627;
+  --red-dark:#A90F1B;
+  --red-deep:#6F0710;
+  --red-light:#FF3A49;
+  --white:#F6F6F7;
+  --white-warm:#EAE6E2;
+  --gray-light:#C5C6CC;
+  --gray-mid:#8E9098;
+  --gold:#E8C9A0;
+  --gold-deep:#b48a52;
+
+  --glass-bg:linear-gradient(135deg,rgba(255,255,255,.085),rgba(255,255,255,.022));
+  --glass-border:rgba(255,255,255,.14);
+  --glass-blur:blur(22px) saturate(150%);
+  --glass-shadow:0 18px 50px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.2),inset 0 -1px 1px rgba(0,0,0,.35);
+
+  --font-head:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;
+  --font-body:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  --radius:22px;
+  --glow-gold:0 0 26px rgba(232,201,160,.4);
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{font-family:var(--font-body);background:var(--black);color:var(--white-warm);line-height:1.55;overflow:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+::selection{background:var(--gold);color:#1a0f06}
+
+/* ===== BACKGROUND FX ===== */
+.bg-fx{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.bg-aurora{position:absolute;inset:-25%;background:
+  radial-gradient(42% 52% at 16% 28%,rgba(232,201,160,.13),transparent 55%),
+  radial-gradient(36% 50% at 86% 78%,rgba(232,201,160,.07),transparent 58%),
+  radial-gradient(48% 40% at 62% 8%,rgba(245,22,39,.08),transparent 60%);
+  animation:auroraPulse 9s ease-in-out infinite}
+.bg-scan{position:absolute;top:0;bottom:0;left:-40%;width:40%;background:linear-gradient(90deg,transparent,rgba(232,201,160,.05),transparent);animation:scanX 9s ease-in-out infinite}
+
+/* ===== DECK ===== */
+.deck{position:relative;z-index:1;height:100svh;width:100%}
+.slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:clamp(56px,7vh,84px) clamp(22px,4.5vw,64px) clamp(84px,11vh,110px);opacity:0;visibility:hidden;transform:translateX(48px);transition:opacity .55s var(--ease),transform .55s var(--ease),visibility 0s .55s}
+.slide.active{opacity:1;visibility:visible;transform:translateX(0);transition:opacity .55s var(--ease),transform .55s var(--ease),visibility 0s 0s}
+.slide.prev{transform:translateX(-48px)}
+.slide-inner{width:100%;max-width:1180px;max-height:100%;overflow-y:auto;scrollbar-width:none}
+.slide-inner::-webkit-scrollbar{display:none}
+
+/* ===== TYPOGRAPHY ===== */
+h1,h2,h3,.eyebrow{font-family:var(--font-head)}
+h1{font-weight:900;font-size:clamp(2rem,4.6vw,3.9rem);line-height:1.02;letter-spacing:-1px;color:var(--white);text-transform:uppercase}
+h2{font-weight:800;font-size:clamp(1.5rem,3vw,2.5rem);line-height:1.08;letter-spacing:-.5px;color:var(--white)}
+.accent-gold{color:var(--gold);text-shadow:0 0 30px rgba(232,201,160,.45)}
+.accent-red{color:var(--red);text-shadow:0 0 30px rgba(245,22,39,.4)}
+p{font-size:clamp(.9rem,1.05vw,1.02rem);color:var(--gray-light)}
+
+.kicker{display:inline-flex;align-items:center;gap:9px;font-family:var(--font-head);text-transform:uppercase;letter-spacing:2px;font-size:clamp(.66rem,.85vw,.8rem);font-weight:600;color:var(--gold);border:1px solid rgba(232,201,160,.35);border-radius:999px;padding:8px 16px;background:linear-gradient(90deg,rgba(232,201,160,.12),rgba(232,201,160,.02));box-shadow:0 0 24px rgba(232,201,160,.1);width:fit-content}
+.kicker i{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold);animation:blink 1.4s ease-in-out infinite;flex-shrink:0}
+.kicker svg{width:14px;height:14px;flex-shrink:0}
+
+/* ===== GLASS ===== */
+.glass{position:relative;background:var(--glass-bg);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);border:1px solid var(--glass-border);border-radius:var(--radius);box-shadow:var(--glass-shadow);overflow:hidden}
+.glass::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(135deg,rgba(255,255,255,.22) 0%,rgba(255,255,255,.04) 22%,transparent 50%);opacity:.8}
+.glass>*{position:relative;z-index:1}
+.glass-gold{background:linear-gradient(135deg,rgba(232,201,160,.1),rgba(232,201,160,.02));border-color:rgba(232,201,160,.28);box-shadow:0 18px 50px rgba(0,0,0,.5),0 0 40px rgba(232,201,160,.05),inset 0 1px 0 rgba(255,255,255,.12)}
+
+/* ===== SLIDE 1 — CAPA ===== */
+.s1-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,5vw,72px);align-items:center}
+.s1-left{display:flex;flex-direction:column;gap:clamp(16px,2.6vh,26px)}
+.s1-logo{height:clamp(48px,7vh,72px);width:auto;object-fit:contain;align-self:flex-start;margin-bottom:4px}
+.s1-sub{font-size:clamp(.95rem,1.25vw,1.15rem);color:var(--gray-light);max-width:540px;line-height:1.6}
+.s1-sub strong{color:var(--white)}
+.tags{display:flex;flex-wrap:wrap;gap:10px}
+.tag{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-head);font-size:clamp(.7rem,.85vw,.8rem);font-weight:600;letter-spacing:-.1px;padding:7px 14px;border-radius:999px;border:1px solid}
+.tag svg{width:13px;height:13px;flex-shrink:0}
+.tag-gold{color:var(--gold);border-color:rgba(232,201,160,.35);background:rgba(232,201,160,.07)}
+.tag-red{color:var(--red-light);border-color:rgba(245,22,39,.34);background:rgba(245,22,39,.06)}
+.tag-glass{color:var(--gray-light);border-color:var(--glass-border);background:var(--glass-bg)}
+
+.stats{display:flex;gap:clamp(18px,2.6vw,34px);flex-wrap:wrap}
+.stat{display:flex;flex-direction:column;gap:3px}
+.stat b{font-family:var(--font-head);font-size:clamp(1.7rem,3vw,2.5rem);line-height:1;color:var(--gold);font-weight:900;letter-spacing:-1px;text-shadow:0 0 22px rgba(232,201,160,.3)}
+.stat span{font-size:.76rem;color:var(--gray-light);line-height:1.3;max-width:120px}
+.stat-vr{width:1px;background:rgba(232,201,160,.28);align-self:center;height:42px}
+
+/* diploma mock */
+.s1-visual{position:relative;display:flex;align-items:center;justify-content:center;min-height:clamp(260px,40vh,400px)}
+.s1-visual .visual-glow{position:absolute;inset:-20px;border-radius:40px;background:radial-gradient(ellipse at 50% 50%,rgba(232,201,160,.13),transparent 70%);pointer-events:none}
+.diploma{position:relative;transform:rotate(-4deg);width:100%;max-width:340px;padding:clamp(22px,3vh,30px) 26px;border-radius:14px;background:linear-gradient(160deg,rgba(20,20,24,.96),rgba(8,8,10,.98));border:1px solid rgba(232,201,160,.4);box-shadow:0 30px 70px rgba(0,0,0,.6),inset 0 0 30px rgba(232,201,160,.06);animation:floatY 5s ease-in-out infinite}
+.dp-seal{width:48px;height:48px;border-radius:50%;background:radial-gradient(circle,var(--gold),var(--gold-deep));display:flex;align-items:center;justify-content:center;margin-bottom:14px;box-shadow:0 0 22px rgba(232,201,160,.4)}
+.dp-seal svg{width:24px;height:24px;color:#1a0f06}
+.dp-t{font-family:var(--font-head);text-transform:uppercase;letter-spacing:1.5px;font-size:.68rem;color:var(--gold)}
+.dp-h{font-family:var(--font-head);text-transform:uppercase;font-weight:800;font-size:clamp(1.15rem,1.7vw,1.4rem);color:var(--white);line-height:1.05;margin:6px 0 12px}
+.dp-line{height:1px;background:linear-gradient(90deg,rgba(232,201,160,.5),transparent);margin:10px 0}
+.dp-sm{font-size:.68rem;color:var(--gray-mid);letter-spacing:.5px}
+
+/* ===== HEAD PADRÃO DAS LÂMINAS ===== */
+.slide-head{display:flex;flex-direction:column;gap:12px;margin-bottom:clamp(20px,3.4vh,34px)}
+.slide-head .lead{max-width:720px;font-size:clamp(.9rem,1.1vw,1.05rem)}
+
+/* ===== SLIDE 2 — MATRIZ ===== */
+.mod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.3vw,16px)}
+.mod{display:flex;align-items:center;gap:12px;padding:clamp(12px,1.8vh,18px) 16px;border-radius:16px;transition:transform .3s var(--ease),border-color .3s}
+.mod:hover{transform:translateY(-3px);border-color:rgba(232,201,160,.5)}
+.mod .mnum{flex-shrink:0;font-family:var(--font-head);font-weight:900;font-size:clamp(.95rem,1.2vw,1.15rem);color:var(--gold);letter-spacing:-.5px;width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(232,201,160,.12);border:1px solid rgba(232,201,160,.35)}
+.mod .mtxt{display:flex;flex-direction:column;gap:1px;min-width:0}
+.mod .mtxt small{font-size:.62rem;text-transform:uppercase;letter-spacing:1px;color:var(--gray-mid);font-weight:600}
+.mod .mtxt b{font-family:var(--font-head);font-weight:700;font-size:clamp(.8rem,1vw,.94rem);color:var(--white);line-height:1.15;letter-spacing:-.2px}
+.mod-note{display:flex;align-items:center;gap:10px;margin-top:clamp(14px,2.2vh,22px);padding:12px 18px;border-radius:12px;background:linear-gradient(90deg,rgba(232,201,160,.06),transparent);border:1px solid rgba(232,201,160,.16);font-size:.8rem;color:var(--gray-mid)}
+.mod-note svg{width:16px;height:16px;color:var(--gold);flex-shrink:0}
+
+/* ===== SLIDE 3 — AO VIVO / PRESENCIAL ===== */
+.s3-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(16px,2vw,24px);align-items:stretch}
+.s3-col{display:flex;flex-direction:column;gap:clamp(12px,1.8vh,18px)}
+.live-card{padding:clamp(16px,2.4vh,24px) clamp(18px,1.8vw,26px);display:flex;flex-direction:column;gap:10px}
+.live-card .lc-top{display:flex;align-items:center;gap:12px}
+.lc-icon{flex-shrink:0;width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:rgba(232,201,160,.12);border:1px solid rgba(232,201,160,.4)}
+.lc-icon svg{width:22px;height:22px;color:var(--gold)}
+.lc-icon.red{background:rgba(245,22,39,.1);border-color:rgba(245,22,39,.3)}
+.lc-icon.red svg{color:var(--red)}
+.live-card h3{font-family:var(--font-head);font-size:clamp(1rem,1.35vw,1.25rem);font-weight:800;letter-spacing:-.3px;color:var(--white);line-height:1.15}
+.live-card p{font-size:clamp(.8rem,.95vw,.9rem);line-height:1.5}
+.lc-badge{display:inline-flex;align-items:center;gap:5px;font-family:var(--font-head);font-size:.66rem;font-weight:700;letter-spacing:.4px;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:rgba(232,201,160,.08);border:1px solid rgba(232,201,160,.3);color:var(--gold);width:fit-content}
+.sched{display:flex;flex-direction:column;gap:8px;margin-top:2px}
+.sched-row{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:clamp(.76rem,.9vw,.86rem);padding:8px 12px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07)}
+.sched-row b{font-family:var(--font-head);color:var(--white);font-weight:700;white-space:nowrap}
+.sched-row span{color:var(--gray-light);text-align:right}
+.sched-row.hl{background:rgba(232,201,160,.07);border-color:rgba(232,201,160,.25)}
+.sched-row.hl span{color:var(--gold)}
+
+.meet-list{padding:clamp(14px,2vh,20px) clamp(16px,1.6vw,22px);display:flex;flex-direction:column;height:100%}
+.meet-list h3{font-family:var(--font-head);font-size:clamp(1rem,1.35vw,1.2rem);font-weight:800;color:var(--white);letter-spacing:-.3px;margin-bottom:4px}
+.meet-list .ml-sub{font-size:.78rem;color:var(--gray-mid);margin-bottom:12px}
+.meet{display:flex;align-items:center;gap:12px;padding:clamp(8px,1.2vh,12px) 10px;border-radius:12px;transition:background .25s}
+.meet:hover{background:rgba(232,201,160,.05)}
+.meet + .meet{border-top:1px solid rgba(255,255,255,.05)}
+.meet .mn{flex-shrink:0;width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-weight:900;font-size:.85rem;color:var(--gold);background:rgba(232,201,160,.1);border:1px solid rgba(232,201,160,.3)}
+.meet .mt{flex:1;min-width:0;display:flex;flex-direction:column}
+.meet .mt b{font-family:var(--font-head);font-weight:700;font-size:clamp(.82rem,1vw,.95rem);color:var(--white);letter-spacing:-.2px;line-height:1.2}
+.meet .md{flex-shrink:0;font-size:clamp(.68rem,.82vw,.78rem);color:var(--gold);font-weight:600;text-align:right;white-space:nowrap}
+
+/* ===== SLIDE 4 — RETA FINAL ===== */
+.s4-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,1.8vw,22px);margin-bottom:clamp(16px,2.6vh,26px)}
+.rev-card{padding:clamp(18px,2.8vh,28px) clamp(20px,2vw,28px);display:flex;flex-direction:column;gap:10px}
+.rev-card .days{font-family:var(--font-head);font-weight:900;font-size:clamp(2rem,3.6vw,3rem);line-height:1;color:var(--gold);letter-spacing:-1px;text-shadow:0 0 24px rgba(232,201,160,.3)}
+.rev-card .days small{font-size:clamp(.85rem,1.1vw,1rem);font-weight:700;color:var(--gray-light);letter-spacing:0}
+.rev-card h3{font-family:var(--font-head);font-size:clamp(1rem,1.4vw,1.3rem);font-weight:800;color:var(--white);letter-spacing:-.3px;line-height:1.15}
+.rev-card p{font-size:clamp(.8rem,.95vw,.92rem)}
+.final-strip{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding:clamp(20px,3vh,32px) clamp(20px,2.6vw,36px);border-radius:var(--radius);background:linear-gradient(110deg,rgba(232,201,160,.14) 0%,rgba(232,201,160,.03) 100%);border:1px solid rgba(232,201,160,.35);box-shadow:0 0 50px rgba(232,201,160,.07)}
+.final-strip .fs-text{display:flex;flex-direction:column;gap:8px;max-width:600px}
+.final-strip h3{font-family:var(--font-head);font-size:clamp(1.2rem,1.9vw,1.7rem);font-weight:800;color:var(--white);letter-spacing:-.4px;line-height:1.15}
+.fs-checks{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:2px}
+.fs-checks span{display:inline-flex;align-items:center;gap:7px;font-size:clamp(.76rem,.92vw,.88rem);color:var(--gray-light)}
+.fs-checks svg{width:15px;height:15px;color:var(--gold);flex-shrink:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;font-family:var(--font-head);font-weight:800;letter-spacing:-.2px;font-size:clamp(.95rem,1.15vw,1.1rem);padding:16px 36px;border-radius:999px;transition:transform .25s var(--ease),box-shadow .3s var(--ease);white-space:nowrap;position:relative;overflow:hidden}
+.btn-gold{color:#1a0f06;background:linear-gradient(100deg,var(--gold) 0%,var(--gold-deep) 100%);box-shadow:var(--glow-gold);animation:pulseGold 2.8s ease-in-out infinite}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 0 38px rgba(232,201,160,.6)}
+.btn-gold svg{width:18px;height:18px}
+
+/* ===== SLIDE 5 — COMPARATIVO ===== */
+.cmp{border-radius:var(--radius);overflow:hidden}
+.cmp-head,.cmp-row{display:grid;grid-template-columns:1.6fr .7fr .7fr;align-items:center}
+.cmp-head{padding:clamp(12px,1.8vh,18px) clamp(16px,1.8vw,26px);background:linear-gradient(90deg,rgba(232,201,160,.12),rgba(232,201,160,.03));border-bottom:1px solid rgba(232,201,160,.25)}
+.cmp-head .ch-label{font-family:var(--font-head);font-size:.68rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-mid)}
+.cmp-head .ch-col{font-family:var(--font-head);font-weight:800;font-size:clamp(.78rem,1vw,.95rem);letter-spacing:-.2px;text-align:center;line-height:1.2}
+.cmp-head .ch-col.gold{color:var(--gold)}
+.cmp-head .ch-col.dim{color:var(--gray-mid)}
+.cmp-row{padding:clamp(9px,1.4vh,14px) clamp(16px,1.8vw,26px)}
+.cmp-row + .cmp-row{border-top:1px solid rgba(255,255,255,.05)}
+.cmp-row:hover{background:rgba(232,201,160,.04)}
+.cmp-row .cr-txt{font-size:clamp(.78rem,.95vw,.92rem);color:var(--white-warm);line-height:1.35;padding-right:14px}
+.cmp-row .cr-txt small{display:block;font-size:.7rem;color:var(--gray-mid)}
+.cmp-cell{display:flex;align-items:center;justify-content:center}
+.cmp-yes,.cmp-no{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.cmp-yes{background:rgba(232,201,160,.14);border:1px solid rgba(232,201,160,.45)}
+.cmp-yes svg{width:14px;height:14px;color:var(--gold)}
+.cmp-no{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1)}
+.cmp-no svg{width:12px;height:12px;color:var(--gray-mid)}
+.cmp-foot{font-size:.74rem;color:var(--gray-mid);margin-top:clamp(10px,1.6vh,16px);display:flex;align-items:center;gap:8px}
+.cmp-foot svg{width:14px;height:14px;color:var(--gold);flex-shrink:0}
+
+/* ===== SLIDE 6 — INVESTIMENTO / PROPOSTA ===== */
+.s6-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(14px,1.8vw,24px);align-items:stretch}
+.price-card{padding:clamp(22px,3.2vh,34px) clamp(22px,2.2vw,32px);display:flex;flex-direction:column;gap:12px}
+.price-card .pc-name{font-family:var(--font-head);text-transform:uppercase;letter-spacing:2px;font-size:.74rem;font-weight:700;color:var(--gray-light)}
+.price-card .pc-name b{color:var(--gold)}
+.price-value{font-family:var(--font-head);font-weight:900;font-size:clamp(2.2rem,4vw,3.4rem);line-height:1;letter-spacing:-1.5px;color:var(--white);text-shadow:0 0 30px rgba(232,201,160,.2)}
+.price-value .cur{font-size:.45em;font-weight:700;color:var(--gold);vertical-align:super;letter-spacing:0}
+.price-cond{font-size:clamp(.82rem,1vw,.95rem);color:var(--gray-light)}
+.editable{outline:none;border-radius:8px;transition:background .25s,box-shadow .25s;cursor:text}
+.editable:hover{background:rgba(232,201,160,.06)}
+.editable:focus{background:rgba(232,201,160,.08);box-shadow:0 0 0 1px rgba(232,201,160,.4)}
+.edit-hint{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-head);font-size:.64rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gray-mid);border:1px dashed rgba(232,201,160,.35);border-radius:999px;padding:4px 12px;width:fit-content;margin-top:auto}
+.edit-hint svg{width:12px;height:12px;color:var(--gold);flex-shrink:0}
+.prop-list{display:flex;flex-direction:column;gap:clamp(8px,1.3vh,12px);padding:clamp(18px,2.6vh,28px) clamp(20px,2vw,28px)}
+.prop-list h3{font-family:var(--font-head);font-size:clamp(1rem,1.35vw,1.2rem);font-weight:800;color:var(--white);letter-spacing:-.3px;margin-bottom:2px}
+.prop-item{display:flex;align-items:flex-start;gap:11px;padding:clamp(8px,1.2vh,12px) 12px;border-radius:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);font-size:clamp(.78rem,.95vw,.9rem);color:var(--gray-light);line-height:1.4}
+.prop-item svg{width:15px;height:15px;color:var(--gold);flex-shrink:0;margin-top:2px}
+.prop-item b{color:var(--white)}
+
+/* ===== SLIDE 7 — ENCERRAMENTO ===== */
+.s7-wrap{display:flex;flex-direction:column;align-items:center;text-align:center;gap:clamp(16px,2.8vh,28px)}
+.s7-logo{height:clamp(64px,11vh,110px);width:auto;object-fit:contain}
+.s7-logo-fallback{display:none;font-family:var(--font-head);font-weight:900;font-size:clamp(1.6rem,3vw,2.4rem);letter-spacing:-.5px;color:var(--white);text-transform:uppercase}
+.s7-logo-fallback b{color:var(--red)}
+.s7-tag{font-size:clamp(.95rem,1.2vw,1.1rem);color:var(--gray-light);max-width:560px;line-height:1.6}
+.s7-divider{width:min(340px,60%);height:1px;background:linear-gradient(90deg,transparent,rgba(232,201,160,.5),transparent)}
+.sig-card{padding:clamp(24px,3.4vh,36px) clamp(28px,3.4vw,52px);display:flex;flex-direction:column;align-items:center;gap:6px;max-width:520px;width:100%}
+.sig-name{font-family:var(--font-head);font-weight:800;font-size:clamp(1.3rem,2.2vw,1.8rem);letter-spacing:-.5px;color:var(--white);line-height:1.1}
+.sig-role{font-family:var(--font-head);text-transform:uppercase;letter-spacing:2px;font-size:clamp(.66rem,.85vw,.78rem);font-weight:700;color:var(--gold);margin-bottom:12px}
+.sig-contacts{display:flex;flex-direction:column;gap:8px;width:100%}
+.sig-contact{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-size:clamp(.82rem,1vw,.95rem);color:var(--gray-light);padding:10px 18px;border-radius:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);transition:border-color .25s,background .25s}
+.sig-contact:hover{border-color:rgba(232,201,160,.45);background:rgba(232,201,160,.06);color:var(--white)}
+.sig-contact svg{width:16px;height:16px;color:var(--gold);flex-shrink:0}
+
+@media(max-width:900px){
+  .s6-grid{grid-template-columns:1fr}
+  .cmp-head,.cmp-row{grid-template-columns:1.3fr .55fr .55fr}
+}
+
+/* ===== NAV ===== */
+.deck-nav{position:fixed;bottom:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px clamp(20px,4vw,48px);background:linear-gradient(180deg,transparent,rgba(4,4,5,.85) 45%);pointer-events:none}
+.deck-nav>*{pointer-events:auto}
+.nav-brand{display:flex;align-items:center;gap:10px;font-family:var(--font-head);font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-mid)}
+.nav-brand b{color:var(--gold)}
+.dots{display:flex;gap:9px;align-items:center}
+.dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.18);border:1px solid transparent;transition:all .3s var(--ease);cursor:pointer;padding:0}
+.dot.active{background:var(--gold);box-shadow:0 0 12px rgba(232,201,160,.6);transform:scale(1.25)}
+.nav-arrows{display:flex;align-items:center;gap:10px}
+.nav-count{font-family:var(--font-head);font-size:.78rem;font-weight:700;color:var(--gray-mid);letter-spacing:1px;min-width:44px;text-align:center}
+.nav-count b{color:var(--gold)}
+.arrow{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(232,201,160,.08);border:1px solid rgba(232,201,160,.3);color:var(--gold);transition:all .25s var(--ease)}
+.arrow:hover{background:rgba(232,201,160,.18);transform:translateY(-2px)}
+.arrow:disabled{opacity:.3;cursor:default;transform:none}
+.arrow svg{width:17px;height:17px}
+
+/* ===== ANIMAÇÕES ===== */
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+@keyframes auroraPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.72;transform:scale(1.04)}}
+@keyframes scanX{0%{left:-40%}60%{left:140%}100%{left:140%}}
+@keyframes pulseGold{0%,100%{box-shadow:0 0 26px rgba(232,201,160,.4)}50%{box-shadow:0 0 44px rgba(232,201,160,.65)}}
+@keyframes floatY{0%,100%{transform:rotate(-4deg) translateY(0)}50%{transform:rotate(-4deg) translateY(-10px)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.slide.active .fade-el{animation:fadeUp .6s var(--ease) both}
+.slide.active .fade-el:nth-child(2){animation-delay:.08s}
+.slide.active .fade-el:nth-child(3){animation-delay:.16s}
+.slide.active .fade-el:nth-child(4){animation-delay:.24s}
+.slide.active .fade-el:nth-child(5){animation-delay:.32s}
+
+/* ===== RESPONSIVO ===== */
+@media(max-width:900px){
+  body{overflow:auto}
+  .s1-grid,.s3-grid,.s4-grid{grid-template-columns:1fr}
+  .mod-grid{grid-template-columns:repeat(2,1fr)}
+  .s1-visual{min-height:0;padding:10px 0}
+  .diploma{max-width:290px}
+  .slide{padding-bottom:96px}
+}
+@media(max-width:520px){
+  .mod-grid{grid-template-columns:1fr}
+  .nav-brand{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="bg-fx">
+  <div class="bg-aurora"></div>
+  <div class="bg-scan"></div>
+</div>
+
+<div class="deck" id="deck">
+
+  <!-- ============ LÂMINA 1 — CAPA ============ -->
+  <section class="slide active" data-slide="1">
+    <div class="slide-inner">
+      <div class="s1-grid">
+        <div class="s1-left">
+          <img src="emergency logo.png" alt="Emergency Talks" class="s1-logo fade-el" onerror="this.style.display='none'" />
+          <div class="kicker fade-el"><i></i>TEME Premium 2027 · Pós-graduação + Título</div>
+          <h1 class="fade-el">Sua pós-graduação em <span class="accent-gold">Medicina de Emergência</span></h1>
+          <p class="s1-sub fade-el">O único percurso em que você conclui uma <strong>pós-graduação</strong> enquanto se prepara para o <strong>Título de Especialista em Medicina de Emergência (TEME)</strong>. Uma jornada, duas conquistas: o certificado e o título.</p>
+          <div class="tags fade-el">
+            <span class="tag tag-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>Certificado de pós-graduação</span>
+            <span class="tag tag-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>#TítuloDeEmergência</span>
+            <span class="tag tag-glass"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Encontros presenciais em São Paulo</span>
+          </div>
+          <div class="stats fade-el">
+            <div class="stat"><b>11</b><span>eixos temáticos na matriz curricular</span></div>
+            <div class="stat-vr"></div>
+            <div class="stat"><b>6</b><span>imersões presenciais de prática real</span></div>
+            <div class="stat-vr"></div>
+            <div class="stat"><b>10</b><span>encontros ao vivo de questões</span></div>
+          </div>
+        </div>
+        <div class="s1-visual">
+          <div class="visual-glow"></div>
+          <div class="diploma">
+            <div class="dp-seal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12"/></svg></div>
+            <div class="dp-t">Certificado de</div>
+            <div class="dp-h">Pós-graduação</div>
+            <div class="dp-line"></div>
+            <div class="dp-sm">Exclusivo da modalidade TEME Premium · Turma 2027</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LÂMINA 2 — MATRIZ CURRICULAR ============ -->
+  <section class="slide" data-slide="2">
+    <div class="slide-inner">
+      <div class="slide-head">
+        <div class="kicker fade-el"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>Programação virtual · Fase assíncrona</div>
+        <h2 class="fade-el">Uma matriz curricular construída para a <span class="accent-gold">emergência real</span></h2>
+        <p class="lead fade-el">Onze eixos temáticos cobrem toda a medicina de emergência — da via aérea à gestão. As aulas são liberadas semanalmente, num ritmo didático-pedagógico planejado para você evoluir com consistência, no seu tempo.</p>
+      </div>
+      <div class="mod-grid fade-el">
+        <div class="mod glass"><div class="mnum">01</div><div class="mtxt"><small>Eixo temático</small><b>Via aérea</b></div></div>
+        <div class="mod glass"><div class="mnum">02</div><div class="mtxt"><small>Eixo temático</small><b>Cardiovascular</b></div></div>
+        <div class="mod glass"><div class="mnum">03</div><div class="mtxt"><small>Eixo temático</small><b>Clínica</b></div></div>
+        <div class="mod glass"><div class="mnum">04</div><div class="mtxt"><small>Eixo temático</small><b>Neuro</b></div></div>
+        <div class="mod glass"><div class="mnum">05</div><div class="mtxt"><small>Eixo temático</small><b>Trauma e APH</b></div></div>
+        <div class="mod glass"><div class="mnum">06</div><div class="mtxt"><small>Eixo temático</small><b>POCUS</b></div></div>
+        <div class="mod glass"><div class="mnum">07</div><div class="mtxt"><small>Eixo temático</small><b>Reanimação</b></div></div>
+        <div class="mod glass"><div class="mnum">08</div><div class="mtxt"><small>Eixo temático</small><b>Pediatria</b></div></div>
+        <div class="mod glass"><div class="mnum">09</div><div class="mtxt"><small>Eixo temático</small><b>Toxicologia</b></div></div>
+        <div class="mod glass"><div class="mnum">10</div><div class="mtxt"><small>Eixo temático</small><b>Ginecologia e Obstetrícia</b></div></div>
+        <div class="mod glass"><div class="mnum">11</div><div class="mtxt"><small>Eixo temático</small><b>Gestão</b></div></div>
+      </div>
+      <div class="mod-note fade-el">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        A liberação semanal segue a programação didático-pedagógica do curso e pode não seguir a sequência cronológica dos módulos.
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LÂMINA 3 — AO VIVO + PRESENCIAL ============ -->
+  <section class="slide" data-slide="3">
+    <div class="slide-inner">
+      <div class="slide-head">
+        <div class="kicker fade-el"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Fase síncrona + Programação presencial</div>
+        <h2 class="fade-el">Onde a teoria vira <span class="accent-gold">prática, ao vivo</span></h2>
+      </div>
+      <div class="s3-grid">
+        <div class="s3-col">
+          <div class="live-card glass fade-el">
+            <div class="lc-top">
+              <div class="lc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+              <div><span class="lc-badge">Fase síncrona · Ao vivo</span><h3 style="margin-top:4px">Curso de Questões</h3></div>
+            </div>
+            <p><strong style="color:var(--white)">10 encontros de 1 hora</strong> com foco total em estratégia de prova e resolução de questões — o treino que transforma conhecimento em pontos no dia do TEME.</p>
+          </div>
+          <div class="live-card glass-gold glass fade-el">
+            <div class="lc-top">
+              <div class="lc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+              <div><span class="lc-badge">Fins de semana de imersão</span><h3 style="margin-top:4px">Horários padronizados</h3></div>
+            </div>
+            <div class="sched">
+              <div class="sched-row"><b>Sexta-feira</b><span>08:30 às 18:00</span></div>
+              <div class="sched-row"><b>Sábado</b><span>08:30 às 18:00</span></div>
+              <div class="sched-row hl"><b>Domingo</b><span>09:00 às 14:00 · Simulado da prova teórica TEME</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="meet-list glass fade-el">
+          <h3>6 encontros presenciais em São Paulo</h3>
+          <p class="ml-sub">Imersões práticas com simulação, procedimentos e contato direto com professores titulados.</p>
+          <div class="meet"><div class="mn">1</div><div class="mt"><b>ResusTalks</b></div><div class="md">22 a 24 · jan 2027</div></div>
+          <div class="meet"><div class="mn">2</div><div class="mt"><b>Trauma e APH</b></div><div class="md">26 a 28 · fev 2027</div></div>
+          <div class="meet"><div class="mn">3</div><div class="mt"><b>Mapa do Choque + POCUS Cardio</b></div><div class="md">26 a 28 · mar 2027</div></div>
+          <div class="meet"><div class="mn">4</div><div class="mt"><b>The Big POCUS</b></div><div class="md">23 a 25 · abr 2027</div></div>
+          <div class="meet"><div class="mn">5</div><div class="mt"><b>MAVA + Procedimentos</b></div><div class="md">21 a 23 · mai 2027</div></div>
+          <div class="meet"><div class="mn">6</div><div class="mt"><b>eMePed Talks</b></div><div class="md">25 a 27 · jun 2027</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LÂMINA 4 — RETA FINAL + CTA ============ -->
+  <section class="slide" data-slide="4">
+    <div class="slide-inner">
+      <div class="slide-head">
+        <div class="kicker fade-el"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Reta final · Revisões presenciais</div>
+        <h2 class="fade-el">Até o dia da prova, <span class="accent-gold">você não caminha sozinho</span></h2>
+        <p class="lead fade-el">Quando a prova se aproximar, você volta a se encontrar com a gente — presencialmente — para revisar tudo o que importa.</p>
+      </div>
+      <div class="s4-grid">
+        <div class="rev-card glass fade-el">
+          <div class="days">1 <small>dia de imersão</small></div>
+          <h3>Revisão para a Prova Teórica</h3>
+          <p>Encontro presencial para consolidar os temas mais cobrados e ajustar sua estratégia para a prova teórica. <span style="color:var(--gray-mid)">Data a definir.</span></p>
+        </div>
+        <div class="rev-card glass glass-gold fade-el">
+          <div class="days">3 <small>dias de imersão</small></div>
+          <h3>Revisão para a Prova Prática</h3>
+          <p>Três dias intensos de treino presencial das estações práticas — para você chegar à prova prática com a segurança de quem já viveu aquilo. <span style="color:var(--gray-mid)">Data a definir.</span></p>
+        </div>
+      </div>
+      <div class="final-strip fade-el">
+        <div class="fs-text">
+          <h3>No fim do percurso, você leva <span class="accent-gold">dois resultados</span></h3>
+          <div class="fs-checks">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Preparação completa para o TEME</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Certificado de pós-graduação no currículo</span>
+          </div>
+        </div>
+        <a class="btn btn-gold" href="https://emergencytalks.com.br/checkout/?add-to-cart=22462&redirect_to=checkout" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          Quero o TEME Premium
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LÂMINA 5 — COMPARATIVO ============ -->
+  <section class="slide" data-slide="5">
+    <div class="slide-inner">
+      <div class="slide-head">
+        <div class="kicker fade-el"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>Comparativo · Por que o TEME Premium</div>
+        <h2 class="fade-el">O que só esta pós-graduação <span class="accent-gold">entrega</span></h2>
+        <p class="lead fade-el">Existem outras pós-graduações em medicina de emergência. Mas nenhuma foi desenhada para terminar com você aprovado na prova de título.</p>
+      </div>
+      <div class="cmp glass fade-el">
+        <div class="cmp-head">
+          <span class="ch-label">Benefício</span>
+          <span class="ch-col gold">TEME Premium</span>
+          <span class="ch-col dim">Outras pós de emergência</span>
+        </div>
+        <div class="cmp-row">
+          <div class="cr-txt">Certificado de pós-graduação em Medicina de Emergência</div>
+          <div class="cmp-cell"><span class="cmp-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></div>
+          <div class="cmp-cell"><span class="cmp-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></div>
+        </div>
+        <div class="cmp-row">
+          <div class="cr-txt"><b style="color:var(--gold)">Preparação direcionada para a prova de título (TEME · ABRAMEDE)</b><small>Você não sai só especializado — sai pronto para o título</small></div>
+          <div class="cmp-cell"><span class="cmp-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></div>
+          <div class="cmp-cell"><span class="cmp-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></div>
+        </div>
+        <div class="cmp-row">
+          <div class="cr-txt">Professores 100% titulados na prova que você vai prestar</div>
+          <div class="cmp-cell"><span class="cmp-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></div>
+          <div class="cmp-cell"><span class="cmp-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></div>
+        </div>
+        <div class="cmp-row">
+          <div class="cr-txt">Curso de questões ao vivo + simulados no formato exato da ABRAMEDE</div>
+          <div class="cmp-cell"><span class="cmp-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></div>
+          <div class="cmp-cell"><span class="cmp-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></div>
+        </div>
+        <div class="cmp-row">
+          <div class="cr-txt">6 imersões presenciais com simulação realística e procedimentos</div>
+          <div class="cmp-cell"><span class="cmp-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></div>
+          <div class="cmp-cell"><span class="cmp-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></div>
+        </div>
+        <div class="cmp-row">
+          <div class="cr-txt">Revisões presenciais dedicadas às provas teórica e prática</div>
+          <div class="cmp-cell"><span class="cmp-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></div>
+          <div class="cmp-cell"><span class="cmp-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></div>
+        </div>
+        <div class="cmp-row">
+          <div class="cr-txt">Banco de questões, flashcards e dashboard de desempenho individual</div>
+          <div class="cmp-cell"><span class="cmp-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></div>
+          <div class="cmp-cell"><span class="cmp-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></div>
+        </div>
+      </div>
+      <p class="cmp-foot fade-el">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        8 em cada 10 aprovados no TEME passaram pelo Talks — a mesma metodologia agora dentro de uma pós-graduação.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ LÂMINA 6 — INVESTIMENTO / PROPOSTA ============ -->
+  <section class="slide" data-slide="6">
+    <div class="slide-inner">
+      <div class="slide-head">
+        <div class="kicker fade-el"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Investimento · Proposta</div>
+        <h2 class="fade-el">Sua proposta para o <span class="accent-gold">TEME Premium</span></h2>
+      </div>
+      <div class="s6-grid">
+        <div class="price-card glass glass-gold fade-el">
+          <span class="pc-name">TEME <b>Premium</b> · Turma 2027</span>
+          <div class="price-value editable" contenteditable="true" spellcheck="false"><span class="cur">R$</span> 0.000,00</div>
+          <p class="price-cond editable" contenteditable="true" spellcheck="false">ou 12x de R$ 000,00 no cartão</p>
+          <div class="sched" style="margin-top:8px">
+            <div class="sched-row editable" contenteditable="true" spellcheck="false"><b>Condição especial</b><span>descreva aqui a condição da proposta</span></div>
+            <div class="sched-row editable" contenteditable="true" spellcheck="false"><b>Validade</b><span>proposta válida até 00/00/2026</span></div>
+          </div>
+          <span class="edit-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.83 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></svg>Clique nos valores para editar</span>
+        </div>
+        <div class="prop-list glass fade-el">
+          <h3>O que está incluído na proposta</h3>
+          <div class="prop-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Pós-graduação completa</b> — 11 eixos temáticos com certificado ao final</span></div>
+          <div class="prop-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Toda a preparação para o TEME</b> — aulas, banco de questões, simulados e flashcards</span></div>
+          <div class="prop-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Curso de Questões ao vivo</b> — 10 encontros de estratégia e resolução</span></div>
+          <div class="prop-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>6 encontros presenciais em São Paulo</b> — imersões práticas de janeiro a junho de 2027</span></div>
+          <div class="prop-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Revisões presenciais</b> — 1 dia para a prova teórica + 3 dias para a prova prática</span></div>
+          <div class="prop-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Mentoria personalizada</b> com especialista e painel de desempenho individual</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LÂMINA 7 — ENCERRAMENTO ============ -->
+  <section class="slide" data-slide="7">
+    <div class="slide-inner">
+      <div class="s7-wrap">
+        <img src="emergency logo.png" alt="Emergency Talks" class="s7-logo fade-el" onerror="this.style.display='none';document.querySelector('.s7-logo-fallback').style.display='block'" />
+        <div class="s7-logo-fallback">Emergency <b>Talks</b></div>
+        <p class="s7-tag fade-el">Vamos construir juntos o seu 2027 — com uma pós-graduação no currículo e o Título de Emergência na parede.</p>
+        <div class="s7-divider fade-el"></div>
+        <div class="sig-card glass glass-gold fade-el">
+          <div class="sig-name">Karla Barreira</div>
+          <div class="sig-role">Coordenadora de Mercado</div>
+          <div class="sig-contacts">
+            <a class="sig-contact" href="https://wa.me/5585991364591" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.1 6.1l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              85 9.9136-4591
+            </a>
+            <a class="sig-contact" href="mailto:karlabarreira@emergencytalks.com.br">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              karlabarreira@emergencytalks.com.br
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ===== NAVEGAÇÃO ===== -->
+<div class="deck-nav">
+  <div class="nav-brand">TEME <b>Premium</b> · 2027</div>
+  <div class="dots" id="dots"></div>
+  <div class="nav-arrows">
+    <button class="arrow" id="prevBtn" aria-label="Lâmina anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+    <span class="nav-count"><b id="curNum">1</b> / <span id="totNum">7</span></span>
+    <button class="arrow" id="nextBtn" aria-label="Próxima lâmina"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+  </div>
+</div>
+
+<script>
+const slides = Array.from(document.querySelectorAll('.slide'));
+const dotsWrap = document.getElementById('dots');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const curNum = document.getElementById('curNum');
+document.getElementById('totNum').textContent = slides.length;
+let cur = 0;
+
+slides.forEach((_, i) => {
+  const d = document.createElement('button');
+  d.className = 'dot' + (i === 0 ? ' active' : '');
+  d.setAttribute('aria-label', 'Ir para lâmina ' + (i + 1));
+  d.addEventListener('click', () => go(i));
+  dotsWrap.appendChild(d);
+});
+const dots = Array.from(dotsWrap.children);
+
+function go(i) {
+  if (i < 0 || i >= slides.length || i === cur) return;
+  slides[cur].classList.remove('active');
+  slides[cur].classList.toggle('prev', i > cur);
+  slides[i].classList.remove('prev');
+  slides[i].classList.add('active');
+  cur = i;
+  dots.forEach((d, j) => d.classList.toggle('active', j === cur));
+  curNum.textContent = cur + 1;
+  prevBtn.disabled = cur === 0;
+  nextBtn.disabled = cur === slides.length - 1;
+}
+prevBtn.addEventListener('click', () => go(cur - 1));
+nextBtn.addEventListener('click', () => go(cur + 1));
+prevBtn.disabled = true;
+
+document.addEventListener('keydown', e => {
+  if (e.target.isContentEditable) return;
+  if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { e.preventDefault(); go(cur + 1); }
+  if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); go(cur - 1); }
+  if (e.key === 'Home') go(0);
+  if (e.key === 'End') go(slides.length - 1);
+  if (e.key === 'f' || e.key === 'F') {
+    if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+    else document.exitFullscreen();
+  }
+});
+
+// Swipe no mobile
+let touchX = null;
+document.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+document.addEventListener('touchend', e => {
+  if (touchX === null) return;
+  const dx = e.changedTouches[0].clientX - touchX;
+  if (Math.abs(dx) > 60) go(dx < 0 ? cur + 1 : cur - 1);
+  touchX = null;
+}, { passive: true });
+</script>
+</body>
+</html>
