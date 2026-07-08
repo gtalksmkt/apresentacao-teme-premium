@@ -234,6 +234,25 @@ p{font-size:clamp(.9rem,1.05vw,1.02rem);color:var(--gray-light)}
 .sig-contact{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-size:clamp(.82rem,1vw,.95rem);color:var(--gray-light);padding:10px 18px;border-radius:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);transition:border-color .25s,background .25s}
 .sig-contact:hover{border-color:rgba(232,201,160,.45);background:rgba(232,201,160,.06);color:var(--white)}
 .sig-contact svg{width:16px;height:16px;color:var(--gold);flex-shrink:0}
+.pdf-btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-head);font-size:.78rem;font-weight:600;letter-spacing:.2px;color:var(--gray-mid);padding:9px 20px;border-radius:999px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.13);transition:all .25s var(--ease);cursor:pointer}
+.pdf-btn:hover{color:var(--gold);border-color:rgba(232,201,160,.45);background:rgba(232,201,160,.06)}
+.pdf-btn svg{width:14px;height:14px;flex-shrink:0}
+.pdf-tip{font-size:.66rem;color:var(--gray-mid);margin-top:6px;opacity:.8}
+
+/* ===== IMPRESSÃO / PDF ===== */
+@media print{
+  @page{size:297mm 167mm;margin:0}
+  html,body{height:auto;overflow:visible;background:#040405}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact;animation:none!important;transition:none!important}
+  .bg-fx,.deck-nav,.no-print,.edit-hint{display:none!important}
+  .deck{height:auto}
+  .slide{position:relative;inset:auto;opacity:1!important;visibility:visible!important;transform:none!important;height:166mm;width:100%;page-break-after:always;break-after:page;display:flex;align-items:center;justify-content:center;padding:12mm 16mm;background:#040405;overflow:hidden}
+  .slide:last-of-type{page-break-after:auto;break-after:auto}
+  .slide-inner{max-height:none;overflow:visible}
+  .fade-el{opacity:1!important}
+  .glass{backdrop-filter:none;-webkit-backdrop-filter:none}
+  .diploma{animation:none;transform:rotate(-4deg)}
+}
 
 @media(max-width:900px){
   .s6-grid{grid-template-columns:1fr}
@@ -550,6 +569,13 @@ p{font-size:clamp(.9rem,1.05vw,1.02rem);color:var(--gray-light)}
               karlabarreira@emergencytalks.com.br
             </a>
           </div>
+        </div>
+        <div class="no-print fade-el" style="display:flex;flex-direction:column;align-items:center">
+          <button class="pdf-btn" onclick="window.print()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Baixar em PDF
+          </button>
+          <p class="pdf-tip">Na janela que abrir, escolha "Salvar como PDF" — as edições da proposta vão junto.</p>
         </div>
       </div>
     </div>
