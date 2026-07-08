@@ -101,15 +101,15 @@ p{font-size:clamp(.9rem,1.05vw,1.02rem);color:var(--gray-light)}
 .stat-vr{width:1px;background:rgba(232,201,160,.28);align-self:center;height:42px}
 
 /* diploma mock */
-.s1-visual{position:relative;display:flex;align-items:center;justify-content:center;min-height:clamp(260px,40vh,400px)}
+.s1-visual{position:relative;display:flex;align-items:center;justify-content:center;min-height:clamp(300px,46vh,480px)}
 .s1-visual .visual-glow{position:absolute;inset:-20px;border-radius:40px;background:radial-gradient(ellipse at 50% 50%,rgba(232,201,160,.13),transparent 70%);pointer-events:none}
-.diploma{position:relative;transform:rotate(-4deg);width:100%;max-width:340px;padding:clamp(22px,3vh,30px) 26px;border-radius:14px;background:linear-gradient(160deg,rgba(20,20,24,.96),rgba(8,8,10,.98));border:1px solid rgba(232,201,160,.4);box-shadow:0 30px 70px rgba(0,0,0,.6),inset 0 0 30px rgba(232,201,160,.06);animation:floatY 5s ease-in-out infinite}
-.dp-seal{width:48px;height:48px;border-radius:50%;background:radial-gradient(circle,var(--gold),var(--gold-deep));display:flex;align-items:center;justify-content:center;margin-bottom:14px;box-shadow:0 0 22px rgba(232,201,160,.4)}
-.dp-seal svg{width:24px;height:24px;color:#1a0f06}
-.dp-t{font-family:var(--font-head);text-transform:uppercase;letter-spacing:1.5px;font-size:.68rem;color:var(--gold)}
-.dp-h{font-family:var(--font-head);text-transform:uppercase;font-weight:800;font-size:clamp(1.15rem,1.7vw,1.4rem);color:var(--white);line-height:1.05;margin:6px 0 12px}
-.dp-line{height:1px;background:linear-gradient(90deg,rgba(232,201,160,.5),transparent);margin:10px 0}
-.dp-sm{font-size:.68rem;color:var(--gray-mid);letter-spacing:.5px}
+.diploma{position:relative;transform:rotate(-4deg);width:100%;max-width:440px;padding:clamp(28px,4vh,40px) clamp(28px,2.6vw,36px);border-radius:18px;background:linear-gradient(160deg,rgba(20,20,24,.96),rgba(8,8,10,.98));border:1px solid rgba(232,201,160,.4);box-shadow:0 30px 70px rgba(0,0,0,.6),inset 0 0 30px rgba(232,201,160,.06);animation:floatY 5s ease-in-out infinite}
+.dp-seal{width:60px;height:60px;border-radius:50%;background:radial-gradient(circle,var(--gold),var(--gold-deep));display:flex;align-items:center;justify-content:center;margin-bottom:16px;box-shadow:0 0 26px rgba(232,201,160,.45)}
+.dp-seal svg{width:30px;height:30px;color:#1a0f06}
+.dp-t{font-family:var(--font-head);text-transform:uppercase;letter-spacing:2px;font-size:.8rem;color:var(--gold)}
+.dp-h{font-family:var(--font-head);text-transform:uppercase;font-weight:800;font-size:clamp(1.5rem,2.4vw,1.95rem);color:var(--white);line-height:1.05;margin:6px 0 14px}
+.dp-line{height:1px;background:linear-gradient(90deg,rgba(232,201,160,.5),transparent);margin:12px 0}
+.dp-sm{font-size:.78rem;color:var(--gray-mid);letter-spacing:.5px}
 
 /* ===== HEAD PADRÃO DAS LÂMINAS ===== */
 .slide-head{display:flex;flex-direction:column;gap:12px;margin-bottom:clamp(20px,3.4vh,34px)}
@@ -147,6 +147,9 @@ p{font-size:clamp(.9rem,1.05vw,1.02rem);color:var(--gray-light)}
 
 .meet-list{padding:clamp(14px,2vh,20px) clamp(16px,1.6vw,22px);display:flex;flex-direction:column;height:100%}
 .meet-list h3{font-family:var(--font-head);font-size:clamp(1rem,1.35vw,1.2rem);font-weight:800;color:var(--white);letter-spacing:-.3px;margin-bottom:4px}
+.ml-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.ml-note{margin-top:auto;padding-top:12px;display:flex;align-items:center;gap:9px;font-family:var(--font-head);font-size:.76rem;font-weight:700;letter-spacing:.3px;color:var(--red-light)}
+.ml-note i{width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 10px var(--red);animation:blink 1.4s ease-in-out infinite;flex-shrink:0}
 .meet-list .ml-sub{font-size:.78rem;color:var(--gray-mid);margin-bottom:12px}
 .meet{display:flex;align-items:center;gap:12px;padding:clamp(8px,1.2vh,12px) 10px;border-radius:12px;transition:background .25s}
 .meet:hover{background:rgba(232,201,160,.05)}
@@ -185,6 +188,8 @@ p{font-size:clamp(.9rem,1.05vw,1.02rem);color:var(--gray-light)}
 .cmp-row{padding:clamp(9px,1.4vh,14px) clamp(16px,1.8vw,26px)}
 .cmp-row + .cmp-row{border-top:1px solid rgba(255,255,255,.05)}
 .cmp-row:hover{background:rgba(232,201,160,.04)}
+.cmp-row.gold-row{background:linear-gradient(90deg,rgba(232,201,160,.07),transparent)}
+.cmp-row.gold-row .cr-txt{color:var(--white)}
 .cmp-row .cr-txt{font-size:clamp(.78rem,.95vw,.92rem);color:var(--white-warm);line-height:1.35;padding-right:14px}
 .cmp-row .cr-txt small{display:block;font-size:.7rem;color:var(--gray-mid)}
 .cmp-cell{display:flex;align-items:center;justify-content:center}
@@ -296,7 +301,7 @@ p{font-size:clamp(.9rem,1.05vw,1.02rem);color:var(--gray-light)}
           <img src="emergency logo.png" alt="Emergency Talks" class="s1-logo fade-el" onerror="this.style.display='none'" />
           <div class="kicker fade-el"><i></i>TEME Premium 2027 · Pós-graduação + Título</div>
           <h1 class="fade-el">Sua pós-graduação em <span class="accent-gold">Medicina de Emergência</span></h1>
-          <p class="s1-sub fade-el">O único percurso em que você conclui uma <strong>pós-graduação</strong> enquanto se prepara para o <strong>Título de Especialista em Medicina de Emergência (TEME)</strong>. Uma jornada, duas conquistas: o certificado e o título.</p>
+          <p class="s1-sub fade-el">A jornada que te possibilita concluir uma <strong>pós-graduação</strong> enquanto se prepara para o <strong>Título de Especialista em Medicina de Emergência (TEME)</strong>. Um caminho, duas conquistas: o certificado e o título.</p>
           <div class="tags fade-el">
             <span class="tag tag-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>Certificado de pós-graduação</span>
             <span class="tag tag-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>#TítuloDeEmergência</span>
@@ -308,6 +313,8 @@ p{font-size:clamp(.9rem,1.05vw,1.02rem);color:var(--gray-light)}
             <div class="stat"><b>6</b><span>imersões presenciais de prática real</span></div>
             <div class="stat-vr"></div>
             <div class="stat"><b>10</b><span>encontros ao vivo de questões</span></div>
+            <div class="stat-vr"></div>
+            <div class="stat"><b>4</b><span>dias de revisões presenciais na reta final</span></div>
           </div>
         </div>
         <div class="s1-visual">
@@ -381,7 +388,10 @@ p{font-size:clamp(.9rem,1.05vw,1.02rem);color:var(--gray-light)}
           </div>
         </div>
         <div class="meet-list glass fade-el">
-          <h3>6 encontros presenciais em São Paulo</h3>
+          <div class="ml-head">
+            <h3>6 encontros presenciais em São Paulo</h3>
+            <span class="lc-badge">Turma 01 · 2027</span>
+          </div>
           <p class="ml-sub">Imersões práticas com simulação, procedimentos e contato direto com professores titulados.</p>
           <div class="meet"><div class="mn">1</div><div class="mt"><b>ResusTalks</b></div><div class="md">22 a 24 · jan 2027</div></div>
           <div class="meet"><div class="mn">2</div><div class="mt"><b>Trauma e APH</b></div><div class="md">26 a 28 · fev 2027</div></div>
@@ -389,6 +399,7 @@ p{font-size:clamp(.9rem,1.05vw,1.02rem);color:var(--gray-light)}
           <div class="meet"><div class="mn">4</div><div class="mt"><b>The Big POCUS</b></div><div class="md">23 a 25 · abr 2027</div></div>
           <div class="meet"><div class="mn">5</div><div class="mt"><b>MAVA + Procedimentos</b></div><div class="md">21 a 23 · mai 2027</div></div>
           <div class="meet"><div class="mn">6</div><div class="mt"><b>eMePed Talks</b></div><div class="md">25 a 27 · jun 2027</div></div>
+          <div class="ml-note"><i></i>Vagas limitadas — a Turma 01 tem capacidade reduzida nos encontros presenciais.</div>
         </div>
       </div>
     </div>
@@ -434,55 +445,55 @@ p{font-size:clamp(.9rem,1.05vw,1.02rem);color:var(--gray-light)}
   <section class="slide" data-slide="5">
     <div class="slide-inner">
       <div class="slide-head">
-        <div class="kicker fade-el"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>Comparativo · Por que o TEME Premium</div>
-        <h2 class="fade-el">O que só esta pós-graduação <span class="accent-gold">entrega</span></h2>
-        <p class="lead fade-el">Existem outras pós-graduações em medicina de emergência. Mas nenhuma foi desenhada para terminar com você aprovado na prova de título.</p>
+        <div class="kicker fade-el"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>Comparativo · Premium × MasterClass</div>
+        <h2 class="fade-el">O que o Premium acrescenta ao <span class="accent-gold">melhor do Talks</span></h2>
+        <p class="lead fade-el">O MasterClass é uma preparação excelente — e tudo o que ele tem de melhor está dentro do Premium. A diferença é o que você leva além da aprovação: uma pós-graduação, vivência presencial e acompanhamento individual.</p>
       </div>
       <div class="cmp glass fade-el">
         <div class="cmp-head">
           <span class="ch-label">Benefício</span>
           <span class="ch-col gold">TEME Premium</span>
-          <span class="ch-col dim">Outras pós de emergência</span>
+          <span class="ch-col dim">TEME MasterClass</span>
         </div>
         <div class="cmp-row">
-          <div class="cr-txt">Certificado de pós-graduação em Medicina de Emergência</div>
+          <div class="cr-txt">Preparação completa para o TEME — aulas, banco de questões, simulados e flashcards</div>
           <div class="cmp-cell"><span class="cmp-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></div>
           <div class="cmp-cell"><span class="cmp-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></div>
         </div>
         <div class="cmp-row">
-          <div class="cr-txt"><b style="color:var(--gold)">Preparação direcionada para a prova de título (TEME · ABRAMEDE)</b><small>Você não sai só especializado — sai pronto para o título</small></div>
+          <div class="cr-txt">Estratégia de prova e resolução de questões com professores titulados</div>
           <div class="cmp-cell"><span class="cmp-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></div>
-          <div class="cmp-cell"><span class="cmp-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></div>
+          <div class="cmp-cell"><span class="cmp-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></div>
         </div>
         <div class="cmp-row">
-          <div class="cr-txt">Professores 100% titulados na prova que você vai prestar</div>
+          <div class="cr-txt">Encontros ao vivo e contato próximo com os professores</div>
           <div class="cmp-cell"><span class="cmp-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></div>
-          <div class="cmp-cell"><span class="cmp-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></div>
-        </div>
-        <div class="cmp-row">
-          <div class="cr-txt">Curso de questões ao vivo + simulados no formato exato da ABRAMEDE</div>
           <div class="cmp-cell"><span class="cmp-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></div>
-          <div class="cmp-cell"><span class="cmp-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></div>
         </div>
-        <div class="cmp-row">
-          <div class="cr-txt">6 imersões presenciais com simulação realística e procedimentos</div>
+        <div class="cmp-row gold-row">
+          <div class="cr-txt"><b style="color:var(--gold)">Certificado de pós-graduação em Medicina de Emergência</b><small>O mesmo esforço de estudo vira uma especialização no seu currículo</small></div>
           <div class="cmp-cell"><span class="cmp-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></div>
           <div class="cmp-cell"><span class="cmp-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></div>
         </div>
-        <div class="cmp-row">
-          <div class="cr-txt">Revisões presenciais dedicadas às provas teórica e prática</div>
+        <div class="cmp-row gold-row">
+          <div class="cr-txt"><b style="color:var(--gold)">6 imersões presenciais em São Paulo</b><small>Simulação realística, procedimentos e prática real de janeiro a junho de 2027</small></div>
           <div class="cmp-cell"><span class="cmp-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></div>
           <div class="cmp-cell"><span class="cmp-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></div>
         </div>
-        <div class="cmp-row">
-          <div class="cr-txt">Banco de questões, flashcards e dashboard de desempenho individual</div>
+        <div class="cmp-row gold-row">
+          <div class="cr-txt"><b style="color:var(--gold)">Mentoria personalizada com especialista</b><small>Alguém olhando para a sua evolução, não para a média da turma</small></div>
+          <div class="cmp-cell"><span class="cmp-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></div>
+          <div class="cmp-cell"><span class="cmp-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></div>
+        </div>
+        <div class="cmp-row gold-row">
+          <div class="cr-txt"><b style="color:var(--gold)">Painel de desempenho individual</b><small>Seus acertos, suas lacunas e onde focar — em tempo real</small></div>
           <div class="cmp-cell"><span class="cmp-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></div>
           <div class="cmp-cell"><span class="cmp-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></div>
         </div>
       </div>
       <p class="cmp-foot fade-el">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        8 em cada 10 aprovados no TEME passaram pelo Talks — a mesma metodologia agora dentro de uma pós-graduação.
+        Os dois caminhos preparam para o título. Só o Premium transforma essa mesma jornada em uma pós-graduação — com prática presencial e acompanhamento do início ao fim.
       </p>
     </div>
   </section>
