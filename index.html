@@ -306,6 +306,19 @@ p{font-size:clamp(.9rem,1.05vw,1.02rem);color:var(--gray-light)}
   .mod-grid{grid-template-columns:1fr}
   .nav-brand{display:none}
 }
+
+/* ===== MOBILE: rolagem contínua (sem modo apresentação) ===== */
+@media(max-width:700px){
+  html,body{height:auto;overflow-x:hidden;overflow-y:auto}
+  .deck{height:auto}
+  .slide,.slide.active,.slide.prev{position:relative;inset:auto;opacity:1;visibility:visible;transform:none;transition:none;min-height:100svh;height:auto;padding:52px 20px}
+  .slide + .slide{border-top:1px solid rgba(232,201,160,.16)}
+  .slide-inner{max-height:none;overflow:visible}
+  .deck-nav{display:none}
+  .bg-fx{position:fixed}
+  .s1-visual{min-height:0;padding:18px 0 6px}
+  .diploma{max-width:300px;margin:0 auto}
+}
 </style>
 </head>
 <body>
@@ -640,13 +653,16 @@ document.addEventListener('keydown', e => {
   }
 });
 
-// Swipe no mobile
-let touchX = null;
-document.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+// Swipe muda de lâmina apenas no modo apresentação (telas largas);
+// no mobile a página rola continuamente e o swipe não interfere
+const isStacked = () => window.matchMedia('(max-width:700px)').matches;
+let touchX = null, touchY = null;
+document.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; touchY = e.touches[0].clientY; }, { passive: true });
 document.addEventListener('touchend', e => {
-  if (touchX === null) return;
+  if (touchX === null || isStacked()) { touchX = null; return; }
   const dx = e.changedTouches[0].clientX - touchX;
-  if (Math.abs(dx) > 60) go(dx < 0 ? cur + 1 : cur - 1);
+  const dy = e.changedTouches[0].clientY - touchY;
+  if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy)) go(dx < 0 ? cur + 1 : cur - 1);
   touchX = null;
 }, { passive: true });
 </script>
