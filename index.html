@@ -241,12 +241,12 @@ p{font-size:clamp(.9rem,1.05vw,1.02rem);color:var(--gray-light)}
 
 /* ===== IMPRESSÃO / PDF ===== */
 @media print{
-  @page{size:297mm 167mm;margin:0}
-  html,body{height:auto;overflow:visible;background:#040405}
+  @page{size:A4 landscape;margin:0}
+  html,body{height:auto;overflow:visible;background:#040405!important;margin:0;padding:0}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact;animation:none!important;transition:none!important}
   .bg-fx,.deck-nav,.no-print,.edit-hint{display:none!important}
   .deck{height:auto}
-  .slide{position:relative;inset:auto;opacity:1!important;visibility:visible!important;transform:none!important;height:166mm;width:100%;page-break-after:always;break-after:page;display:flex;align-items:center;justify-content:center;padding:12mm 16mm;background:#040405;overflow:hidden}
+  .slide{position:relative;inset:auto;opacity:1!important;visibility:visible!important;transform:none!important;width:100%;height:100vh;page-break-after:always;break-after:page;page-break-inside:avoid;break-inside:avoid;display:flex;align-items:center;justify-content:center;padding:12mm 16mm;background:#040405!important;overflow:hidden;box-sizing:border-box}
   .slide:last-of-type{page-break-after:auto;break-after:auto}
   .slide-inner{max-height:none;overflow:visible}
   .fade-el{opacity:1!important}
