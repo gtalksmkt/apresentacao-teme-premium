@@ -180,12 +180,15 @@ p{font-size:clamp(.9rem,1.05vw,1.02rem);color:var(--gray-light)}
 /* ===== SLIDE 5 — COMPARATIVO ===== */
 .cmp{border-radius:var(--radius);overflow:hidden}
 .cmp-head,.cmp-row{display:grid;grid-template-columns:1.6fr .7fr .7fr;align-items:center}
-.cmp-head{padding:clamp(12px,1.8vh,18px) clamp(16px,1.8vw,26px);background:linear-gradient(90deg,rgba(232,201,160,.12),rgba(232,201,160,.03));border-bottom:1px solid rgba(232,201,160,.25)}
+.cmp-head{padding:clamp(9px,1.3vh,14px) clamp(16px,1.8vw,26px);background:linear-gradient(90deg,rgba(232,201,160,.12),rgba(232,201,160,.03));border-bottom:1px solid rgba(232,201,160,.25)}
 .cmp-head .ch-label{font-family:var(--font-head);font-size:.68rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-mid)}
 .cmp-head .ch-col{font-family:var(--font-head);font-weight:800;font-size:clamp(.78rem,1vw,.95rem);letter-spacing:-.2px;text-align:center;line-height:1.2}
 .cmp-head .ch-col.gold{color:var(--gold)}
 .cmp-head .ch-col.dim{color:var(--gray-mid)}
-.cmp-row{padding:clamp(6px,1vh,11px) clamp(16px,1.8vw,26px)}
+.cmp-row{padding:clamp(5px,.8vh,9px) clamp(16px,1.8vw,26px)}
+@media screen{.slide[data-slide="5"]{padding-top:clamp(40px,5vh,60px);padding-bottom:clamp(68px,9vh,90px)}}
+[data-slide="5"] .slide-head{margin-bottom:clamp(10px,1.8vh,18px);gap:8px}
+[data-slide="5"] .slide-head .lead{font-size:clamp(.82rem,1vw,.95rem);line-height:1.45}
 .cmp-row + .cmp-row{border-top:1px solid rgba(255,255,255,.05)}
 .cmp-row:hover{background:rgba(232,201,160,.04)}
 .cmp-row.gold-row{background:linear-gradient(90deg,rgba(232,201,160,.07),transparent)}
@@ -193,12 +196,12 @@ p{font-size:clamp(.9rem,1.05vw,1.02rem);color:var(--gray-light)}
 .cmp-row .cr-txt{font-size:clamp(.78rem,.95vw,.92rem);color:var(--white-warm);line-height:1.35;padding-right:14px}
 .cmp-row .cr-txt small{display:block;font-size:.7rem;color:var(--gray-mid)}
 .cmp-cell{display:flex;align-items:center;justify-content:center}
-.cmp-yes,.cmp-no{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.cmp-yes,.cmp-no{width:21px;height:21px;border-radius:50%;display:flex;align-items:center;justify-content:center}
 .cmp-yes{background:rgba(232,201,160,.14);border:1px solid rgba(232,201,160,.45)}
-.cmp-yes svg{width:14px;height:14px;color:var(--gold)}
+.cmp-yes svg{width:12px;height:12px;color:var(--gold)}
 .cmp-no{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1)}
-.cmp-no svg{width:12px;height:12px;color:var(--gray-mid)}
-.cmp-foot{font-size:.74rem;color:var(--gray-mid);margin-top:clamp(10px,1.6vh,16px);display:flex;align-items:center;gap:8px}
+.cmp-no svg{width:10px;height:10px;color:var(--gray-mid)}
+.cmp-foot{font-size:.74rem;color:var(--gray-mid);margin-top:clamp(6px,1vh,10px);display:flex;align-items:center;gap:8px}
 .cmp-foot svg{width:14px;height:14px;color:var(--gold);flex-shrink:0}
 
 /* ===== SLIDE 6 — INVESTIMENTO / PROPOSTA ===== */
