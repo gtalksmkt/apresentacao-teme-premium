@@ -264,19 +264,34 @@ p{font-size:clamp(.9rem,1.05vw,1.02rem);color:var(--gray-light)}
 .ios-btn-gold{font-family:var(--font-head);font-weight:800;font-size:.95rem;color:#1a0f06;background:linear-gradient(100deg,var(--gold),var(--gold-deep));border-radius:999px;padding:13px 24px;box-shadow:var(--glow-gold)}
 .ios-btn-ghost{font-family:var(--font-head);font-weight:600;font-size:.82rem;color:var(--gray-mid);padding:8px}
 
-/* ===== IMPRESSÃO / PDF ===== */
+/* ===== IMPRESSÃO / PDF =====
+   Padrão (sem JS, ex.: visualizador do WhatsApp no iPhone): A4 RETRATO,
+   documento contínuo — sem alturas fixas, sem faixas brancas.
+   Em telas largas o JS adiciona .print-paisagem: uma lâmina por página A4 paisagem. */
 @media print{
-  @page{size:A4 landscape;margin:0}
+  @page{size:A4;margin:0}
   html,body{height:auto;overflow:visible;background:#040405!important;margin:0;padding:0}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact;animation:none!important;transition:none!important}
-  .bg-fx,.deck-nav,.no-print,.edit-hint{display:none!important}
-  .deck{height:auto}
-  .slide{position:relative;inset:auto;opacity:1!important;visibility:visible!important;transform:none!important;width:100%;height:100vh;page-break-after:always;break-after:page;page-break-inside:avoid;break-inside:avoid;display:flex;align-items:center;justify-content:center;padding:12mm 16mm;background:#040405!important;overflow:hidden;box-sizing:border-box}
-  .slide:last-of-type{page-break-after:auto;break-after:auto}
+  .bg-fx,.deck-nav,.no-print,.edit-hint,.ios-modal{display:none!important}
+  .deck{height:auto;background:#040405}
+  .slide{position:relative;inset:auto;opacity:1!important;visibility:visible!important;transform:none!important;background:#040405!important;box-sizing:border-box}
   .slide-inner{max-height:none;overflow:visible}
   .fade-el{opacity:1!important}
   .glass{backdrop-filter:none;-webkit-backdrop-filter:none}
   .diploma{animation:none;transform:rotate(-4deg)}
+
+  /* — modo retrato (padrão): fluxo contínuo, cartões nunca cortados ao meio — */
+  html:not(.print-paisagem) .slide{width:100%;height:auto;min-height:0;display:block;padding:10mm 11mm}
+  html:not(.print-paisagem) .slide + .slide{border-top:1px solid rgba(232,201,160,.35)}
+  html:not(.print-paisagem) .s1-grid,html:not(.print-paisagem) .s3-grid,html:not(.print-paisagem) .s4-grid,html:not(.print-paisagem) .s6-grid{grid-template-columns:1fr;gap:18px}
+  html:not(.print-paisagem) .mod-grid{grid-template-columns:1fr 1fr}
+  html:not(.print-paisagem) .s1-visual{min-height:0;padding:16px 0 8px}
+  html:not(.print-paisagem) .diploma{margin:0 auto}
+  html:not(.print-paisagem) .glass,html:not(.print-paisagem) .cmp,html:not(.print-paisagem) .rev-card,html:not(.print-paisagem) .live-card,html:not(.print-paisagem) .meet-list,html:not(.print-paisagem) .prop-list,html:not(.print-paisagem) .price-card,html:not(.print-paisagem) .sig-card,html:not(.print-paisagem) .final-strip,html:not(.print-paisagem) .slide-head,html:not(.print-paisagem) .stats,html:not(.print-paisagem) .diploma,html:not(.print-paisagem) .mod{break-inside:avoid;page-break-inside:avoid}
+
+  /* — modo paisagem (desktop): uma lâmina por página — */
+  html.print-paisagem .slide{width:100%;height:100vh;page-break-after:always;break-after:page;display:flex;align-items:center;justify-content:center;padding:12mm 16mm;overflow:hidden}
+  html.print-paisagem .slide:last-of-type{page-break-after:auto;break-after:auto}
 }
 
 @media(max-width:900px){
@@ -650,9 +665,9 @@ p{font-size:clamp(.9rem,1.05vw,1.02rem);color:var(--gray-light)}
   <div class="ios-modal-card">
     <h3>Salvar em PDF no iPhone 📱</h3>
     <div class="ios-steps">
-      <div class="ios-step"><span class="n">1</span><span>Se você abriu este arquivo <b>pelo WhatsApp ou pelo app Arquivos</b>, toque no ícone de compartilhar <b>⬆️</b> e escolha <b>"Abrir no Safari"</b>. É preciso estar no Safari para gerar o PDF.</span></div>
-      <div class="ios-step"><span class="n">2</span><span>No Safari, toque no botão abaixo (ou em Compartilhar ⬆️ → <b>Imprimir</b>).</span></div>
-      <div class="ios-step"><span class="n">3</span><span>Na tela de impressão, toque em <b>Compartilhar ⬆️</b> (ou pince a prévia para abri-la) e escolha <b>"Salvar em Arquivos"</b> — pronto, é o seu PDF.</span></div>
+      <div class="ios-step"><span class="n">1</span><span>Toque no ícone de compartilhar <b>⬆️</b> e escolha <b>"Imprimir"</b> — funciona direto do WhatsApp, do app Arquivos ou do Safari.</span></div>
+      <div class="ios-step"><span class="n">2</span><span>Na tela de impressão, toque em <b>Compartilhar ⬆️</b> (ou pince a prévia para abri-la) e escolha <b>"Salvar em Arquivos"</b> — pronto, é o seu PDF.</span></div>
+      <div class="ios-step"><span class="n">3</span><span>Se a opção "Imprimir" não aparecer, toque em ⬆️ → <b>"Abrir no Safari"</b> primeiro e repita os passos.</span></div>
     </div>
     <p class="ios-modal-note">As edições feitas no campo de observações da proposta vão junto no PDF.</p>
     <div class="ios-modal-btns">
@@ -719,9 +734,24 @@ document.addEventListener('keydown', e => {
   }
 });
 
+// Orientação do PDF: retrato (documento) em telas estreitas; paisagem
+// (uma lâmina por página) em telas largas. O retrato é o padrão do CSS,
+// então mesmo sem JS (visualizador do WhatsApp) a impressão sai correta.
+function atualizarModoImpressao() {
+  const paisagem = !window.matchMedia('(max-width:700px)').matches;
+  document.documentElement.classList.toggle('print-paisagem', paisagem);
+  let st = document.getElementById('pageOrient');
+  if (!st) { st = document.createElement('style'); st.id = 'pageOrient'; document.head.appendChild(st); }
+  st.textContent = '@media print{@page{size:A4 ' + (paisagem ? 'landscape' : 'portrait') + ';margin:0}}';
+}
+atualizarModoImpressao();
+window.addEventListener('resize', atualizarModoImpressao);
+window.addEventListener('beforeprint', atualizarModoImpressao);
+
 // Baixar PDF: no iPhone/iPad o window.print() é ignorado fora do Safari,
 // então mostramos um guia com o caminho certo antes de tentar imprimir
 function baixarPDF() {
+  atualizarModoImpressao();
   const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
   if (isIOS) {
     document.getElementById('iosModal').classList.add('aberto');
